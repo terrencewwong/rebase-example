@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import exponentialBackOff from 'exponential-backoff'
 
 export default class App extends Component {
   state = {
@@ -11,6 +12,12 @@ export default class App extends Component {
   }
 
   componentDidMount () {
+    exponentialBackOff(this.fetchText, {
+      timeout: 20 * 1000  
+    })
+  }
+
+  fetchText () {
     fetch('/text')
       .then(response => {
         const { text } = response.json()
