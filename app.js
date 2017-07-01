@@ -6,7 +6,11 @@ const H1 = styled.h1`
 `
 
 export default class App extends Component {
+  state = {
+    text: ''
+  }
+
   render () {
-    return <H1>Hello, World!</H1>
+    return <H1>{this.state.text}</H1>
   }
 }
