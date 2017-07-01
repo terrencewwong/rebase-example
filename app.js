@@ -11,6 +11,15 @@ export default class App extends Component {
     this.setState({ text: this.input.value })
   }
 
+  componentDidMount () {
+    fetch('/text')
+      .then(response => {
+        const json = response.json()
+        const { text } = json
+        this.setState({ text })
+      })
+  }
+
   render () {
     return <div>
       <h1>{this.state.text}</h1>
