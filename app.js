@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import exponentialBackOff from 'exponential-backoff'
+import styled from 'styled-components'
+
+const H1 = styled.h1`
+  font-family: 'Comic Sans MS', sans-serif;
+`
 
 export default class App extends Component {
   state = {
@@ -38,7 +43,7 @@ export default class App extends Component {
 
   render () {
     return <div className={this.state.error ? 'error' : ''}>
-      <h1>{this.state.text}</h1>
+      <H1>{this.state.text}</H1>
       <input type='text' ref={ref => this.input = ref} onChange={this.handleChange} />
       <button onClick={this.syncWithServer}>Sync</button>
     </div>
