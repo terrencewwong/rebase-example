@@ -5,7 +5,15 @@ export default class App extends Component {
     text: ''
   }
 
+  input = null
+  handleChange = () => {
+    this.setState({ text: this.input.value })
+  }
+
   render () {
-    return <h1>{this.state.text}</h1>
+    return <div>
+      <h1>{this.state.text}</h1>
+      <input type='text' ref={ref => this.input = ref} onChange={this.handleChange} />
+    </div>
   }
 }
